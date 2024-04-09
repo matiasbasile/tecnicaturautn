@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+  <form method="post" action="https://google.com">
+    <h1>Este es un elemento en bloque</h1>
+    <input type="hidden" name="oculto" value="1" />
+    <div>
+      <fieldset>
+        <label for="pais">Ingrese su pais</label>
+        <select name="pais" id="pais">
+          <option value="1">Argentina</option>
+          <option value="2">Uruguay</option>
+          <option value="3">Brasil</option>
+        </select>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset>
+        <div>
+          <label>Opcion 1</label>
+          <input type="radio" value="1" name="opcion">
+        </div>
+        <div>
+          <label>Opcion 2</label>
+          <input checked value="2" type="radio" name="opcion">
+        </div>
+        <div>
+          <label>Opcion 3</label>
+          <input type="radio" value="3" name="opcion">
+        </div>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset>
+        <div>
+          <label>Opcion 1</label>
+          <input type="checkbox" value="1" name="check1">
+        </div>
+        <div>
+          <label>Opcion 2</label>
+          <input checked value="1" type="checkbox" name="check2">
+        </div>
+        <div>
+          <label>Opcion 3</label>
+          <input type="checkbox" value="1" name="check3">
+        </div>
+      </fieldset>
+    </div>
+
+
+    <div>
+      <fieldset>
+        <label for="usuario">Ingrese su usuario</label>
+        <input required id="usuario" type="text" placeholder="Matias" name="usuario">
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <label for="password">Ingrese su contraseña</label>
+        <input id="password" type="password" placeholder="1" name="password">
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <label for="file">Subir un archivo</label>
+        <input id="file" type="file">
+      </fieldset>
+    </div>
+    <button>Enviar</button>
+  </form>
+</body>
+</html>
