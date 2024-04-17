@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+  <div>
+    <label for="producto">Producto</label>
+    <input type="text" id="producto">
+  </div>
+  <div>
+    <label for="precio">Precio</label>
+    <input type="number" id="precio">
+  </div>
+  <div>
+    <label for="cantidad">Cantidad</label>
+    <input type="number" id="cantidad">
+  </div>
+  <button onclick="agregar()">Agregar</button>
+  <button onclick="vaciar()">Borrar</button>
+
+  <table border="1" id="tabla"></table>
+
+<script type="text/javascript">
+
+// Modelo de datos
+var productos = [];
+
+function vaciar() {
+  productos = [];
+  imprimirTabla();
+}
+
+function eliminar(i) {
+  productos.splice(i, 1);
+  imprimirTabla();
+}
+
+function agregar() {
+  let titulo = document.querySelector("#producto").value.trim();
+  let precio = document.querySelector("#precio").value;
+  let cantidad = document.querySelector("#cantidad").value;
+  if (titulo == "") {
+    alert("Por favor ingrese un producto.");
+    return;
+  }
+  if ((precio == "") || (precio <= 0)) {
+    alert("Por favor ingrese un precio.");
+    return;
+  }
+  if (cantidad == "") {
+    alert("Por favor ingrese una cantidad.");
+    return;
+  }
+
+  var productoNuevo = {
+    "titulo": titulo,
+    "precio": precio,
+    "cantidad": parseInt(cantidad),
+  }
+
+  var encontro = false;
+  for(var i = 0; i < productos.length; i++){
+    let productoSeleccionado = productos[i];
+    if (productoSeleccionado.titulo == productoNuevo.titulo) {
+      encontro = true;
+      break;
+    }
+  }
+  if (encontro) {
+    // Actualizo la cantidad
+    productos[i].cantidad += parseInt(cantidad);
+  } else {
+    // Si no lo encontro, lo agrego
+    productos.push(productoNuevo);
+  }
+
+  imprimirTabla();
+}
+
+
+// Toma los datos del array e imprime la tabla
+function imprimirTabla() {
+  var html = "";
+  for(var i = 0; i < productos.length; i++) {
+    html += `
+    <tr>
+      <td>${productos[i].titulo}</td>
+      <td>${productos[i].precio}</td>
+      <td>${productos[i].cantidad}</td>
+      <td><button onclick='eliminar(${i})'>Eliminar</button></td>
+    </tr>`;
+  }
+  document.getElementById("tabla").innerHTML = html;
+}  
+</script>
+</body>
+</html>
