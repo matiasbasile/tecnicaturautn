@@ -1,0 +1,35 @@
+.form .input {
+  background-color: #fdfdfd;
+  border: solid 1px #333;
+  border-radius: 3px;
+}
+.form .form-row {
+  margin-bottom: 10px;
+}
+.form .form-row label {
+  width: 70px;
+  display: inline-block;
+}
+.form .btn {
+  background-color: red;
+  color: white;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 3px #00000059;
+  padding: 5px 25px;
+  cursor: pointer;
+}
+.form .btn:hover {
+  background-color: blue;
+}
+.btn:focus {
+  background-color: green;
+}
+
+.table {
+  width: 100%;
+  border: solid 1px black;
+}
+.table td {
+  background-color: gray;
+}

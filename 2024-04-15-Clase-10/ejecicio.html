@@ -4,25 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
-  <div>
-    <label for="producto">Producto</label>
-    <input type="text" id="producto">
-  </div>
-  <div>
-    <label for="precio">Precio</label>
-    <input type="number" id="precio">
-  </div>
-  <div>
-    <label for="cantidad">Cantidad</label>
-    <input type="number" id="cantidad">
-  </div>
-  <button onclick="agregar()">Agregar</button>
-  <button onclick="vaciar()">Borrar</button>
-
-  <table border="1" id="tabla"></table>
-
+  <form onsubmit="return false" class="form">
+    <div class="form-row">
+      <label for="producto">Producto</label>
+      <input type="text" class="input" id="producto">
+    </div>
+    <div class="form-row">
+      <label for="precio">Precio</label>
+      <input type="number" class="input" id="precio">
+    </div>
+    <div class="form-row">
+      <label for="cantidad">Cantidad</label>
+      <input type="number" class="input" id="cantidad">
+    </div>
+    <button id="btnAgregar" class="btn" onclick="agregar()">Agregar</button>
+    <button id="btnVaciar" class="btn" onclick="vaciar()">Borrar</button>
+    <button id="btnModificar" class="btn">Modificar</button>
+    <button>Test</button>
+    <table class="table" id="tabla"></table>
+  </form>
 <script type="text/javascript">
 
 // Modelo de datos
