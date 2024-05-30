@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+  <label>Agregar Tarea</label>
+  <input type="text" id="texto" class="textInput">
+  <button id="agregarButton">Agregar</button>
+  <button id="limpiarButton">Limpiar</button>
+  <ul id="lista">
+  </ul>
+<script type="text/javascript">
+var modelo = [];
+var texto = document.querySelector("#texto");
+
+// Click en el boton
+document.querySelector("#agregarButton").addEventListener("click",agregarItem);
+
+// Enter en el input
+document.querySelector("#texto").addEventListener("keypress",(event) => {
+  if (event.keyCode != 13) return;
+  agregarItem();
+})
+
+document.querySelector("#limpiarButton")
+.addEventListener("click",() => {
+  modelo = [];
+  render();
+});
+
+function agregarItem() {
+  let texto = document.querySelector("#texto");
+  let valor = String(texto.value).trim();
+
+  if (existe(valor)) {
+    alert("Su elemento ya existe");
+    return false;
+  }
+  agregarOrdenado(valor);
+  
+  if (valor == "") {
+    alert("Por favor ingrese un valor");
+    return false;
+  }
+  texto.value = "";
+  render();
+}
+
+function existe(valor) {
+  for (let index = 0; index < modelo.length; index++) {
+    const element = modelo[index];
+    if (element == valor) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function agregarOrdenado(item) {
+  let itemNuevo = String(item).toUpperCase();
+
+  if (modelo.length == 0) {
+    modelo.push(item);
+    return;
+  }
+  // Tengo al menos un elemento
+  for (let index = 0; index < modelo.length; index++) {
+    let element = modelo[index];
+    element = String(element).toUpperCase();
+    if (itemNuevo < element) {
+      modelo.splice(index, 0, itemNuevo);
+      return;
+    }
+  }
+  modelo.push(itemNuevo);
+
+  // SOLUCION FACIL
+  // modelo.push(item);
+  // modelo.sort();
+}
+
+function render() {
+  document.querySelector("#lista").innerHTML = "";
+  for (let index = 0; index < modelo.length; index++) {
+    const element = modelo[index];
+    document.querySelector("#lista").innerHTML += `<li>${element}  <button onclick='eliminarItem(${index})'>Eliminar</button>  </li>`;
+  }
+}
+
+function eliminarItem(i) {
+  modelo.splice(i, 1);
+  render();
+}
+</script>
+</body>
+</html>

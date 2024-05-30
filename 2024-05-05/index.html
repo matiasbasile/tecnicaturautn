@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <style type="text/css">
     body {
       padding: 0px;
@@ -33,12 +34,26 @@
 
     #imagen {
       width: 150px;
-      float: left;
+      display: none;
+      position: absolute;
+      top: 15px;
+    }
+
+    .fondoRojo {
+      background-color: red;
+    }
+
+    .icono {
+      font-size: 72px;
+      color: red; 
     }
 
   </style>
 </head>
 <body>
+  <button>
+    <span class="material-symbols-outlined icono">menu</span>
+  </button>
   <nav>
     <a>Noticias</a>
     <a>Espectaculos</a>
